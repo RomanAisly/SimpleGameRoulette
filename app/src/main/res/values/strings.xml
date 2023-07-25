@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Simple Game Roulette</string>
+    <string name="cont_desc_roulette">roulette</string>
+    <string name="cont_desc_pointer">pointer</string>
 </resources>

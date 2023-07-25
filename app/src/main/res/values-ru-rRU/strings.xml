@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Простенькая Игра \"Рулетка\"</string>
+    <string name="cont_desc_roulette">рулетка</string>
+    <string name="cont_desc_pointer">указатель</string>
 </resources>
