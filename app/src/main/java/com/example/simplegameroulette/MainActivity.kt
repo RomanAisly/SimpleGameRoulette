@@ -6,9 +6,9 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import com.example.simplegameroulette.roulette_screen.RouletteScreen
 import com.example.simplegameroulette.ui.theme.SimpleGameRouletteTheme
-import com.example.simplegameroulette.ui.theme.green
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +17,7 @@ class MainActivity : ComponentActivity() {
             SimpleGameRouletteTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = green
+                    color = Color.Yellow
                 ) {
                     RouletteScreen()
                 }

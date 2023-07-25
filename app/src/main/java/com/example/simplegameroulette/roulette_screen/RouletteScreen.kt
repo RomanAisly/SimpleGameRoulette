@@ -22,7 +22,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -31,6 +30,8 @@ import androidx.compose.ui.unit.sp
 import com.example.simplegameroulette.R
 import com.example.simplegameroulette.ui.theme.red
 import com.example.simplegameroulette.ui.theme.white
+import com.example.simplegameroulette.utils.NumberUtil
+import kotlin.math.roundToInt
 
 @Composable
 fun RouletteScreen() {
@@ -39,8 +40,17 @@ fun RouletteScreen() {
         mutableStateOf(0f)
     }
 
+    var nums by remember {
+        mutableStateOf(0)
+    }
+
     val roundAnim: Float by animateFloatAsState(
-        targetValue = rotationValue, animationSpec = tween(durationMillis = 3000)
+        targetValue = rotationValue,
+        animationSpec = tween(durationMillis = 2500),
+        finishedListener = {
+            val index = (360f - (it % 360)) / (360f / NumberUtil.numsOfRoulette.size)
+            nums = NumberUtil.numsOfRoulette[index.roundToInt()]
+        }
     )
 
 
@@ -51,10 +61,10 @@ fun RouletteScreen() {
                 .height(100.dp)
                 .wrapContentWidth()
                 .wrapContentHeight(),
-            text = "0",
+            text = nums.toString(),
             fontWeight = FontWeight.Bold,
             fontSize = 35.sp,
-            color = Color.White
+            color = red
         )
 
         Box(
